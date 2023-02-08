@@ -154,7 +154,7 @@ public class ChromeBrowserTest extends ViewOrUITest {
 
     static ChromeOptions createHeadlessChromeOptions() {
         final ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless", "--disable-gpu");
+        options.addArguments("--headless=new", "--disable-gpu");
         return options;
     }
 }
