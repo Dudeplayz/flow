@@ -42,7 +42,7 @@ public abstract class AbstractIT extends AbstractSpringTest {
         }
     }
 
-    private void checkForBrowserErrors() {
+    protected void checkForBrowserErrors() {
         checkLogsForErrors(msg -> msg.contains(
                 "admin-only/secret.txt - Failed to load resource: the server responded with a status of 403")
                 || msg.contains(
