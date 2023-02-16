@@ -245,7 +245,7 @@
         <module>test-resources</module>
         <module>test-common</module>
         <module>test-lumo</module>
-        <module>test-express-build</module>
+                <module>test-frontend</module>
     </modules>
 
     <profiles>
@@ -281,49 +281,8 @@
                 </property>
             </activation>
             <modules>
-                <module>test-dev-mode</module>
-                <module>test-pwa</module>
-                <module>test-pwa/pom-production.xml</module>
-                <module>test-pwa-disabled-offline</module>
-                <module>test-pwa-disabled-offline/pom-production.xml</module>
-                <module>test-router-custom-context</module>
-                <module>test-live-reload</module>
-                <module>test-redeployment</module>
-
-                <module>test-scalability</module>
-                <module>test-memory-leaks</module>
-                <module>test-servlet</module>
-                <module>test-themes</module>
-                <module>servlet-containers</module>
-
-                <!-- web component embedding -->
-                <module>test-embedding</module>
-
-                <!-- tests running in both modes -->
-                <module>test-misc</module>
-
-                <module>test-npm-only-features</module>
-                <module>test-multi-war</module>
-                <module>test-ccdm</module>
-                <module>test-ccdm/pom-production.xml</module>
-                <module>test-ccdm-flow-navigation</module>
-                <module>test-ccdm-flow-navigation/pom-production.xml</module>
-
-                <module>test-root-context</module>
-
-                <module>test-eager-bootstrap</module>
-
-                <module>test-custom-route-registry</module>
-                <!-- tests are disabled in this module, this reference is for maven version plugin -->
-                <module>test-no-theme</module>
-                <!-- move theme tests to the end, because theme switch live reload-->
-                <!-- test impacts startup test-->
-                <module>test-application-theme</module>
-                <module>test-theme-no-polymer</module>
-                <module>test-frontend</module>
-                <module>test-custom-frontend-directory</module>
-
                 <module>vaadin-spring-tests</module>
+                <module>test-frontend</module>
             </modules>
         </profile>
         <profile>

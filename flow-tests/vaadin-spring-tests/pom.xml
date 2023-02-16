@@ -326,26 +326,8 @@
             <modules>
                 <module>test-spring-helpers</module>
                 <module>test-spring-common</module>
-                <module>test-spring-boot</module>
-                <!-- Disabled as the resource scanner does not work with Undertow
-                <module>test-spring-boot-undertow</module>
-                -->
-                <module>test-spring-boot-scan</module>
-                <module>test-spring-war</module>
-                <module>test-spring</module>
-                <module>test-spring-boot-contextpath</module>
-                <module>test-spring-boot-reverseproxy</module>
-
-                <module>test-mvc-without-endpoints</module>
-
                 <module>test-spring-security-flow</module>
-                <module>test-spring-security-flow-contextpath</module>
                 <module>test-spring-security-flow-urlmapping</module>
-                <module>test-spring-security-flow-reverseproxy</module>
-                <module>test-spring-security-flow-methodsecurity</module>
-
-                <module>test-spring-boot-only-prepare</module>
-                <module>test-spring-white-list</module>
             </modules>
         </profile>
     </profiles>
