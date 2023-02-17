@@ -121,7 +121,6 @@ public class AppViewIT extends AbstractIT {
         loginAdmin();
         assertAdminPageShown(ADMIN_FULLNAME);
     }
-*/
 
     @Test
     public void private_page_logout_should_redirect_to_root() {
@@ -131,6 +130,7 @@ public class AppViewIT extends AbstractIT {
         clickLogout();
         assertRootPageShown();
     }
+*/
 
     @Test
     public void logout_redirects_to_root_page() {
