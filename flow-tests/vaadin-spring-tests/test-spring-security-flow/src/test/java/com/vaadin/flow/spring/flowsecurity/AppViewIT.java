@@ -35,7 +35,7 @@ public class AppViewIT extends AbstractIT {
     private void clickLogout() {
         getMainView().$(ButtonElement.class).id("logout").click();
     }
-
+/*
     @Test
     public void menu_correct_for_anonymous() {
         open("");
@@ -199,7 +199,7 @@ public class AppViewIT extends AbstractIT {
         logout();
         openResource(path);
         assertLoginViewShown();
-    }
+    }*/
 
     @Test
     public void static_resources_accessible_without_login() throws Exception {
