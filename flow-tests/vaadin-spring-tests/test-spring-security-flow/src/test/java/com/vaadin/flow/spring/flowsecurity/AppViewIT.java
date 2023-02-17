@@ -75,26 +75,19 @@ public class AppViewIT extends AbstractIT {
     }
 
 
+
     @Test
-    public void access_restricted_to_admin() {
-        String contents = "Secret document for admin";
-        String path = "admin-only/secret.txt";
-        openResource(path);
-        assertLoginViewShown();
-        loginUser();
-        openResource(path);
-        assertForbiddenPage();
-        logout();
-
-        openResource(path);
-        loginAdmin();
-        String adminResult = getDriver().getPageSource();
-        Assert.assertTrue(adminResult.contains(contents));
-        logout();
-        openResource(path);
-        assertLoginViewShown();
+    public void static_resources_accessible_without_login() throws Exception {
+        open("manifest.webmanifest");
+        Assert.assertTrue(getDriver().getPageSource()
+                .contains("\"name\":\"Spring Security Helper Test Project\""));
+        open("sw.js");
+        Assert.assertTrue(getDriver().getPageSource()
+                .contains("this._installAndActiveListenersAdded"));
+        open("sw-runtime-resources-precache.js");
+        Assert.assertTrue(getDriver().getPageSource()
+                .contains("self.additionalManifestEntries = ["));
     }
-
 
     @Test
     public void public_app_resources_available_for_all() {
