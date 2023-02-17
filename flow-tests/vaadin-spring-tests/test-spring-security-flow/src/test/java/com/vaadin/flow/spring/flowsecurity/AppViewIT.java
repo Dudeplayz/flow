@@ -46,15 +46,6 @@ public class AppViewIT extends AbstractIT {
     }
 
     @Test
-    public void logout_redirects_to_root_page() {
-        open(LOGIN_PATH);
-        loginUser();
-        navigateTo("private");
-        assertPrivatePageShown(USER_FULLNAME);
-        clickLogout();
-        assertRootPageShown();
-    }
-    @Test
     public void redirect_to_resource_after_login() {
         String contents = "Secret document for admin";
         String path = "admin-only/secret.txt";
@@ -65,6 +56,14 @@ public class AppViewIT extends AbstractIT {
         Assert.assertTrue(result.contains(contents));
     }
 
+    @Test
+    public void refresh_when_logged_in_stays_logged_in() {
+        open("private");
+        loginUser();
+        assertPrivatePageShown(USER_FULLNAME);
+        refresh();
+        assertPrivatePageShown(USER_FULLNAME);
+    }
 
     @Test
     public void static_resources_accessible_without_login() throws Exception {
