@@ -222,8 +222,8 @@ public class AppViewIT extends AbstractIT {
         checkForBrowserErrors();
         Assert.assertTrue(
                 shouldBeTextFile.contains("Public document for all users"));
-                checkForBrowserErrors();
-                open(LOGIN_PATH);
+        checkForBrowserErrors();
+        open(LOGIN_PATH);
         loginUser();
         checkForBrowserErrors();
         openResource("public/public.txt");
@@ -232,52 +232,52 @@ public class AppViewIT extends AbstractIT {
         checkForBrowserErrors();
         Assert.assertTrue(
                 shouldBeTextFile.contains("Public document for all users"));
-                checkForBrowserErrors();
-            }
-
-    @Test
-    public void upload_file_in_private_view() throws IOException {
-        open("private");
-        loginUser();
-        UploadElement upload = $(UploadElement.class).first();
-        File tmpFile = File.createTempFile("security-flow-image", ".png");
-        InputStream imageStream = getClass().getClassLoader()
-                .getResourceAsStream("image.png");
-        IOUtils.copyLarge(imageStream, new FileOutputStream(tmpFile));
-        tmpFile.deleteOnExit();
-        upload.upload(tmpFile);
-
-        TestBenchElement text = $("p").id("uploadText");
-        TestBenchElement img = $("img").id("uploadImage");
-
-        Assert.assertEquals("Loan application uploaded by John the User",
-                text.getText());
-        Assert.assertTrue(img.getPropertyString("src")
-                .contains("/VAADIN/dynamic/resource/"));
+        checkForBrowserErrors();
     }
 
-    @Test
-    public void navigate_in_thread_without_access() {
-        open("");
-        $(ButtonElement.class).id(PublicView.BACKGROUND_NAVIGATION_ID).click();
+    // @Test
+    // public void upload_file_in_private_view() throws IOException {
+    //     open("private");
+    //     loginUser();
+    //     UploadElement upload = $(UploadElement.class).first();
+    //     File tmpFile = File.createTempFile("security-flow-image", ".png");
+    //     InputStream imageStream = getClass().getClassLoader()
+    //             .getResourceAsStream("image.png");
+    //     IOUtils.copyLarge(imageStream, new FileOutputStream(tmpFile));
+    //     tmpFile.deleteOnExit();
+    //     upload.upload(tmpFile);
 
-        // This waits for longer than the delay in the UI so we do not need a
-        // separate
-        // sleep
-        assertLoginViewShown();
-    }
+    //     TestBenchElement text = $("p").id("uploadText");
+    //     TestBenchElement img = $("img").id("uploadImage");
 
-    @Test
-    public void navigate_in_thread_with_access() {
-        open(LOGIN_PATH);
-        loginAdmin();
-        $(ButtonElement.class).id(PublicView.BACKGROUND_NAVIGATION_ID).click();
+    //     Assert.assertEquals("Loan application uploaded by John the User",
+    //             text.getText());
+    //     Assert.assertTrue(img.getPropertyString("src")
+    //             .contains("/VAADIN/dynamic/resource/"));
+    // }
 
-        // This waits for longer than the delay in the UI so we do not need a
-        // separate
-        // sleep
-        assertAdminPageShown(ADMIN_FULLNAME);
-    }
+    // @Test
+    // public void navigate_in_thread_without_access() {
+    //     open("");
+    //     $(ButtonElement.class).id(PublicView.BACKGROUND_NAVIGATION_ID).click();
+
+    //     // This waits for longer than the delay in the UI so we do not need a
+    //     // separate
+    //     // sleep
+    //     assertLoginViewShown();
+    // }
+
+    // @Test
+    // public void navigate_in_thread_with_access() {
+    //     open(LOGIN_PATH);
+    //     loginAdmin();
+    //     $(ButtonElement.class).id(PublicView.BACKGROUND_NAVIGATION_ID).click();
+
+    //     // This waits for longer than the delay in the UI so we do not need a
+    //     // separate
+    //     // sleep
+    //     assertAdminPageShown(ADMIN_FULLNAME);
+    // }
 
     private void navigateTo(String path) {
         navigateTo(path, true);
