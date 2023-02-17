@@ -46,6 +46,15 @@ public class AppViewIT extends AbstractIT {
     }
 
     @Test
+    public void logout_redirects_to_root_page() {
+        open(LOGIN_PATH);
+        loginUser();
+        navigateTo("private");
+        assertPrivatePageShown(USER_FULLNAME);
+        clickLogout();
+        assertRootPageShown();
+    }
+    @Test
     public void redirect_to_resource_after_login() {
         String contents = "Secret document for admin";
         String path = "admin-only/secret.txt";
