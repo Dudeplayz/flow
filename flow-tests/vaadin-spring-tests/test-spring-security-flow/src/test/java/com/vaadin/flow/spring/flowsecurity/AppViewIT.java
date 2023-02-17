@@ -65,6 +65,14 @@ public class AppViewIT extends AbstractIT {
         Assert.assertTrue(result.contains(contents));
     }
 
+    @Test
+    public void refresh_when_logged_in_stays_logged_in() {
+        open("private");
+        loginUser();
+        assertPrivatePageShown(USER_FULLNAME);
+        refresh();
+        assertPrivatePageShown(USER_FULLNAME);
+    }
 
     @Test
     public void access_restricted_to_logged_in_users() {
