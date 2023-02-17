@@ -140,7 +140,7 @@ public class AppViewIT extends AbstractIT {
         clickLogout();
         assertRootPageShown();
     }
-
+*/
     @Test
     public void redirect_to_resource_after_login() {
         String contents = "Secret document for admin";
@@ -199,7 +199,7 @@ public class AppViewIT extends AbstractIT {
         logout();
         openResource(path);
         assertLoginViewShown();
-    }*/
+    }
 
     @Test
     public void static_resources_accessible_without_login() throws Exception {
