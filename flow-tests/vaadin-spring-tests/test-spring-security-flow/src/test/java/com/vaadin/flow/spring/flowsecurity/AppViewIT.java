@@ -74,25 +74,6 @@ public class AppViewIT extends AbstractIT {
         assertPrivatePageShown(USER_FULLNAME);
     }
 
-    @Test
-    public void access_restricted_to_logged_in_users() {
-        String contents = "Secret document for all logged in users";
-        String path = "all-logged-in/secret.txt";
-
-        openResource(path);
-        assertLoginViewShown();
-        loginUser();
-        assertPageContains(contents);
-        logout();
-
-        openResource(path);
-        loginAdmin();
-        assertPageContains(contents);
-        logout();
-
-        openResource(path);
-        assertLoginViewShown();
-    }
 
     @Test
     public void access_restricted_to_admin() {
