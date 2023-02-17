@@ -104,6 +104,7 @@ public class AppViewIT extends AbstractIT {
         loginUser();
         assertPrivatePageShown(USER_FULLNAME);
     }
+*/
 
     @Test
     public void redirect_to_private_view_after_navigation_and_login() {
@@ -140,7 +141,6 @@ public class AppViewIT extends AbstractIT {
         clickLogout();
         assertRootPageShown();
     }
-*/
     @Test
     public void redirect_to_resource_after_login() {
         String contents = "Secret document for admin";
